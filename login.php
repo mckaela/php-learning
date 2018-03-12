@@ -3,7 +3,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 if ($username=="" || $password=="") {
 	echo "Username and password required for login.";
-	echo "<a href='login.html'>Login</a>";
+	echo " <a href='login.html'>Login</a>";
 	die();
 }
 $link = mysqli_connect("localhost","root","123","login") 
@@ -19,4 +19,12 @@ else {
 	echo "Wrong username/password";
 	echo "<a href='login.html'>Login</a>";
 }
+$res = mysqli_close($link);
+if ($res==True) {
+	echo "<br>"."Database connection closed";
+}
+else {
+	echo "<br>"."Unable to close database connection";
+}
+die();
 ?>
